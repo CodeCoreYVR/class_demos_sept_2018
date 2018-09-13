@@ -1,0 +1,87 @@
+<!--
+  DOCTYPE is not tag. It's an annotation for the browser
+  indicating what version of HTML the document is using.
+  Simply writing like below means that it's version 5.
+-->
+<!DOCTYPE html>
+<!--
+  The <html> tag is always the root or common ancestor
+  of all html tags in a document.
+-->
+<html>
+<!--
+    The <head> tag contains information about the document,
+    links to load and script tags to load JS.
+  -->
+
+<head>
+  <title>HTML & CSS Demo</title>
+  <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+
+<!--
+    The <body> tag will hold all tags that will be displayed
+    content. Text, images, sound, tables, etc.
+  -->
+
+<body>
+  <header>
+    <nav>
+      <a href="http://www.google.com">Google</a>
+      <a href="http://nyan.cat">Nyan Cat</a>
+      <a href="">Boards</a>
+      <a href="">Profile</a>
+
+      <form class="form-inline" action="/process_search">
+        <input type="search" name="query" id="query">
+        <input type="submit" value="Search">
+      </form>
+    </nav>
+  </header>
+
+  <main>
+    <!--
+      The "id" HTML attribute works with any tag.
+      It's used as a unique identifier like a person's
+      full name. All "id" attributes on a page should
+      be unique. No tag should have the same "id".
+    -->
+    <section id="starred-boards">
+      <h1>Starred Boards</h1>
+
+      <ul>
+        <li>Management</li>
+        <li>
+          Learning to Hack
+          <div>
+            <img width="200px" src="https://images.pexels.com/photos/63332/science-world-false-creek-vancouver-british-columbia-63332.jpeg?auto=compress&cs=tinysrgb&h=350"
+              alt="Grey Dome Building">
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="personal-boards">
+      <h1>Personal Boards</h1>
+      <ul>
+        <li>Management
+          <div>
+            <img width="200px" src="https://images.pexels.com/photos/63332/science-world-false-creek-vancouver-british-columbia-63332.jpeg?auto=compress&cs=tinysrgb&h=350"
+              alt="Grey Dome Building">
+          </div>
+        </li>
+        <li>Learning to Hack
+          <div>
+            <img width="200px" src="https://images.pexels.com/photos/63332/science-world-false-creek-vancouver-british-columbia-63332.jpeg?auto=compress&cs=tinysrgb&h=350"
+              alt="Grey Dome Building">
+          </div>
+        </li>
+        <li>My Ideas</li>
+        <li>Create New Board...</li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+
+</html>
