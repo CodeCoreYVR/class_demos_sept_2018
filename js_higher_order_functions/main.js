@@ -232,10 +232,19 @@ function strangeVarDemo() {
     // setTimeout(() => console.log("var is", i), 200);
     console.log("var is", i);
   }
+
   // var is 0
   // var is 2
   // var is 4 ...
   for (let j = 0; j < 10; j += 2) {
     setTimeout(() => console.log("var is", j), 200);
+  }
+
+  // 👇 fix for for-var with setTimeout
+  for (var k = 0; k < 3; k += 1) {
+    // Use a IIFE, but take in `k` as an argument to it
+    (function(kInside) {
+      setTimeout(() => console.log("var is", kInside), 200);
+    })(k);
   }
 }
