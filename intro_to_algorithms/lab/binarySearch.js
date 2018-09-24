@@ -27,6 +27,7 @@ function binarySearch(arr, item, startIndex, endIndex) {
 console.log(binarySearch([ 3, 5, 7, 8, 10, 12 ], 10)); // 4
 console.log(binarySearch([ 3, 5, 7, 8, 10, 12 ], 3)); // 0
 console.log(binarySearch([ 3, 5, 7, 8, 10, 12 ], 78)); // -1
+console.log(binarySearch([ 3, 5, 7, 8, 10, 12 ], -1)); // -1
 console.log(binarySearch([ ], 78)); // -1
 console.log(binarySearch([ 15 ], 78)); // -1
 console.log(binarySearch([ 78 ], 78)); // 0
