@@ -1,0 +1,3 @@
+SELECT * FROM students
+CROSS JOIN projects
+LIMIT 100;
