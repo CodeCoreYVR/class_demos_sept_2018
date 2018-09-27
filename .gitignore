@@ -69,5 +69,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+js_node_basics/my_project/node_modules
 
 # End of https://www.gitignore.io/api/linux,macos,windows
