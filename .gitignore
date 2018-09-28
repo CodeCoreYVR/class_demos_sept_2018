@@ -70,5 +70,6 @@ $RECYCLE.BIN/
 *.lnk
 
 js_node_basics/my_project/node_modules
+js_express_basics/node_modules
 
 # End of https://www.gitignore.io/api/linux,macos,windows
