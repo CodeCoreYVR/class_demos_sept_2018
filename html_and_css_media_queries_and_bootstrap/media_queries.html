@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Media Queries Demo</title>
+  <style>
+    html {
+      --spacer: 10px;
+      --article-height: 250px;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: black;
+    }
+
+    header>nav {
+      padding: var(--spacer);
+    }
+
+    .nav-brand {
+      font-size: 2em;
+      line-height: 1;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      padding: var(--spacer);
+    }
+
+    main>div {
+      min-height: var(--article-height);
+      background-color: teal;
+      margin: var(--spacer);
+
+      transition: background-color 250ms 0ms, height 250ms 0ms;
+    }
+
+    main>div:first-child {
+      min-height: calc(var(--article-height) * 2);
+      width: calc(100% - var(--spacer) * 2);
+    }
+
+    @media only screen and (min-width: 576px) {
+      main {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      main>div {
+        width: calc(100%/2 - var(--spacer) * 2);
+        background-color: mediumseagreen;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      main>div {
+        width: calc(100%/3 - var(--spacer) * 2);
+        background-color: chocolate;
+      }
+
+      main>div:first-child {
+        width: calc(100% * 2/3 - var(--spacer) * 2);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="nav-brand">🎃</a>
+    </nav>
+  </header>
+
+  <main class="article-list">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </main>
+</body>
+
+</html>
