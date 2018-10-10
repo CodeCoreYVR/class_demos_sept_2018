@@ -135,6 +135,11 @@ app.post("/sign_in", (request, response) => {
   response.redirect("/");
 });
 
+app.post("/sign_out", (request, response /*, next */) => {
+  response.clearCookie("username");
+  response.redirect("/");
+});
+
 app.use((request, response, next) => {
   console.log("#####");
   console.log("#####");
