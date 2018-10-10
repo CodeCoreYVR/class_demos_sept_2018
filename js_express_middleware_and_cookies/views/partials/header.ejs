@@ -30,6 +30,23 @@
               <a href="/hello_world" class="nav-link">Hello World</a>
             </li>
           </ul>
+
+          <% if (username) { %>
+            <span class="navbar-text text-light ml-auto">
+              😶 <%= username %>
+            </span>
+          <% } else { %>
+            <form action="/sign_in" method="POST" class="form-inline ml-auto">
+              <input
+                type="text"
+                class="form-control mr-2"
+                name="username"
+                placeholder="Username"
+              >
+              <button class="btn btn-outline-light" type="submit">Sign In</button>
+            </form>        
+          <% } %>
+
         </div>
       </nav>
     </header>
