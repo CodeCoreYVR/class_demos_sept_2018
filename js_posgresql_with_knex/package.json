@@ -4,8 +4,9 @@
   "description": "Our first Express.js Application for September 2018 Bootcamp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "db:create": "createdb -e express_demo",
+    "db:drop": "dropdb -e express_demo"
   },
   "author": "Tam Kbeili",
   "license": "ISC",
