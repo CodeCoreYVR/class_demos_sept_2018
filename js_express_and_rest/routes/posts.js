@@ -18,8 +18,8 @@ router.post("/posts", (req, res) => {
       content: req.body.content
     })
     .returning("*")
-    .then(post => {
-      res.redirect("/posts");
+    .then(posts => {
+      res.redirect(`/posts/${posts[0].id}`);
     });
 });
 
@@ -29,6 +29,28 @@ router.get("/posts", (req, res) => {
     .orderBy("createdAt", "desc")
     .then(posts => {
       res.render("posts/index", { posts: posts });
+    });
+});
+
+// posts#show URL: /posts/:id METHOD: GET
+router.get("/posts/:id", (req, res) => {
+  // In the URL above, all the names prefixed with `:`
+  // are called URL params. You can URL with `req.params`.
+
+  // Examples:
+  // /posts/bob -> req.params === { id: "bob" }
+  // /posts/11235 -> req.params === { id: "11235" }
+
+  const id = req.params.id;
+
+  knex("posts")
+    .where("id", id)
+    .first()
+    // Knex method that only works with SELECT queries
+    // which will return the first post. Do this to avoid
+    // having a single post in an array.
+    .then(post => {
+      res.render("posts/show", { post: post });
     });
 });
 
