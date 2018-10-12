@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const methodOverride = require("method-override");
 
 // the express package returns a function that can be called to generate
 // an instance of the Express application.
@@ -29,6 +30,21 @@ app.use(morgan("dev"));
 // will support arrays and objects as data in addition
 // to strings and numbers from forms.
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// METHOD OVERRIDE
+app.use(
+  methodOverride((req, res) => {
+    if (typeof req.body === "object" && req.body._method) {
+      const httpMethod = req.body._method;
+      delete req.body._method;
+
+      // The value returned by this callback will be the method
+      // used for this request. If it returns "DELETE", it will be
+      // process as a delete.
+      return httpMethod;
+    }
+  })
+);
 
 // COOKIE PARSER
 app.use(cookieParser());
