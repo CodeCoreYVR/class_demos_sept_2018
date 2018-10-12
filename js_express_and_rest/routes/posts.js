@@ -66,4 +66,32 @@ router.delete("/posts/:id", (req, res) => {
     });
 });
 
+// posts#edit URL: /posts/:id/edit METHOD: GET
+router.get("/posts/:id/edit", (req, res) => {
+  const id = req.params.id;
+
+  knex("posts")
+    .where("id", id)
+    .first()
+    .then(post => {
+      res.render("posts/edit", { post: post });
+    });
+});
+
+// posts#update URL: /posts/:id METHOD: PATCH
+router.patch("/posts/:id", (req, res) => {
+  const id = req.params.id;
+
+  knex("posts")
+    .where("id", id)
+    .update({
+      title: req.body.title,
+      imageUrl: req.body.imageUrl,
+      content: req.body.content
+    })
+    .then(() => {
+      res.redirect(`/posts/${id}`);
+    });
+});
+
 module.exports = router;

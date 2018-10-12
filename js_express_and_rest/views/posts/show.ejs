@@ -20,10 +20,19 @@
       <em>Posted at <%= post.createdAt %></em>
     </p>
 
-    <form action="/posts/<%= post.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete" class="btn btn-outline-danger">
-    </form>
+    <%# /posts/20/edit %>
+    <div class="d-flex">
+      <a
+        href="/posts/<%= post.id %>/edit"
+        class="btn btn-outline-primary mr-2">
+        Edit
+      </a>
+
+      <form action="/posts/<%= post.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete" class="btn btn-outline-danger">
+      </form>
+    </div>
   </div>
 </div>
 
