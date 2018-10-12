@@ -89,6 +89,10 @@ app.use((request, response, next) => {
 
 // ROUTERS
 
+const postsRouter = require("./routes/posts");
+
+app.use("/", postsRouter);
+
 app.get("/hello_world", (request, response) => {
   response.send("<h1>Hello World!</h1>");
 });
@@ -109,28 +113,6 @@ app.post("/survey/results", (request, response) => {
     name: request.body.fullName,
     color: request.body.color
   });
-});
-
-// POSTS
-const knex = require("./db/client");
-
-// posts#new URL: /posts/new METHOD: GET
-app.get("/posts/new", (req, res) => {
-  res.render("posts/new");
-});
-
-// posts#create URL: /posts METHOD: POST
-app.post("/posts", (req, res) => {
-  knex("posts")
-    .insert({
-      title: req.body.title,
-      imageUrl: req.body.imageUrl,
-      content: req.body.content
-    })
-    .returning("*")
-    .then(post => {
-      res.send(post);
-    });
 });
 
 const COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 * 5;
