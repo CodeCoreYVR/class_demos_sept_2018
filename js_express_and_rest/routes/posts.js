@@ -19,7 +19,16 @@ router.post("/posts", (req, res) => {
     })
     .returning("*")
     .then(post => {
-      res.send(post);
+      res.redirect("/posts");
+    });
+});
+
+// posts#index URL: /posts METHOD: GET
+router.get("/posts", (req, res) => {
+  knex("posts")
+    .orderBy("createdAt", "desc")
+    .then(posts => {
+      res.render("posts/index", { posts: posts });
     });
 });
 
