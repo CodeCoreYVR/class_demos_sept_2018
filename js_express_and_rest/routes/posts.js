@@ -5,12 +5,12 @@ const knex = require("../db/client");
 // POSTS
 
 // posts#new URL: /posts/new METHOD: GET
-router.get("/posts/new", (req, res) => {
+router.get("/new", (req, res) => {
   res.render("posts/new");
 });
 
 // posts#create URL: /posts METHOD: POST
-router.post("/posts", (req, res) => {
+router.post("/", (req, res) => {
   knex("posts")
     .insert({
       title: req.body.title,
@@ -24,7 +24,7 @@ router.post("/posts", (req, res) => {
 });
 
 // posts#index URL: /posts METHOD: GET
-router.get("/posts", (req, res) => {
+router.get("/", (req, res) => {
   knex("posts")
     .orderBy("createdAt", "desc")
     .then(posts => {
@@ -33,7 +33,7 @@ router.get("/posts", (req, res) => {
 });
 
 // posts#show URL: /posts/:id METHOD: GET
-router.get("/posts/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   // In the URL above, all the names prefixed with `:`
   // are called URL params. You can URL with `req.params`.
 
@@ -55,7 +55,7 @@ router.get("/posts/:id", (req, res) => {
 });
 
 // posts#destroy URL: /posts/:id METHOD: DELETE
-router.delete("/posts/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const id = req.params.id;
 
   knex("posts")
@@ -67,7 +67,7 @@ router.delete("/posts/:id", (req, res) => {
 });
 
 // posts#edit URL: /posts/:id/edit METHOD: GET
-router.get("/posts/:id/edit", (req, res) => {
+router.get("/:id/edit", (req, res) => {
   const id = req.params.id;
 
   knex("posts")
@@ -79,7 +79,7 @@ router.get("/posts/:id/edit", (req, res) => {
 });
 
 // posts#update URL: /posts/:id METHOD: PATCH
-router.patch("/posts/:id", (req, res) => {
+router.patch("/:id", (req, res) => {
   const id = req.params.id;
 
   knex("posts")

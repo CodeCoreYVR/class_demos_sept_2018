@@ -107,7 +107,7 @@ app.use((request, response, next) => {
 
 const postsRouter = require("./routes/posts");
 
-app.use("/", postsRouter);
+app.use("/posts", postsRouter);
 
 app.get("/hello_world", (request, response) => {
   response.send("<h1>Hello World!</h1>");
