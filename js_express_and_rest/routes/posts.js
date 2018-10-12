@@ -54,4 +54,16 @@ router.get("/posts/:id", (req, res) => {
     });
 });
 
+// posts#destroy URL: /posts/:id METHOD: DELETE
+router.delete("/posts/:id", (req, res) => {
+  const id = req.params.id;
+
+  knex("posts")
+    .where("id", id)
+    .del()
+    .then(() => {
+      res.redirect("/posts");
+    });
+});
+
 module.exports = router;
