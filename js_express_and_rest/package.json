@@ -1,0 +1,26 @@
+{
+  "name": "js_express_basics",
+  "version": "0.0.1",
+  "description": "Our first Express.js Application for September 2018 Bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "db:create": "createdb -e express_demo",
+    "db:drop": "dropdb -e express_demo"
+  },
+  "author": "Tam Kbeili",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "pg": "^7.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
