@@ -111,6 +111,28 @@ app.post("/survey/results", (request, response) => {
   });
 });
 
+// POSTS
+const knex = require("./db/client");
+
+// posts#new URL: /posts/new METHOD: GET
+app.get("/posts/new", (req, res) => {
+  res.render("posts/new");
+});
+
+// posts#create URL: /posts METHOD: POST
+app.post("/posts", (req, res) => {
+  knex("posts")
+    .insert({
+      title: req.body.title,
+      imageUrl: req.body.imageUrl,
+      content: req.body.content
+    })
+    .returning("*")
+    .then(post => {
+      res.send(post);
+    });
+});
+
 const COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 * 5;
 app.post("/sign_in", (request, response) => {
   // Pro Tip: Use `response.send` as alternative to
