@@ -1,0 +1,24 @@
+html {
+  font-family: Helvetica, "Roboto Sans", sans-serif;
+}
+
+* {
+  font-family: inherit;
+}
+
+textarea {
+  border: gainsboro solid thin;
+}
+
+.question-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.question-list > li {
+  margin: 0 0 10px 0;
+}
+
+main.page:not(.active) {
+  display: none;
+}
