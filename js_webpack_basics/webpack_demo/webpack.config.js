@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -41,5 +42,13 @@ module.exports = {
         use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "🌎 Webpack Demo", // <title> of the web page
+      chunks: ["client"]
+      // Only include bundle named "client" ignoring
+      // any other bundles.
+    })
+  ]
 };
