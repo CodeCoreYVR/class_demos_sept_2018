@@ -26,5 +26,16 @@ module.exports = {
     // the name of the entry specified by the keys
     // of the `entry` property object.
     filename: "[name].bundle.js"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: "file-loader",
+        options: {
+          outputPath: "images/"
+        }
+      }
+    ]
   }
 };
