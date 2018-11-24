@@ -31,6 +31,17 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        // Use `exclude` with a regular expression
+        // to specify files and directories
+        // that should be ignored by this loader.
+        // In this case, we ignore node_modules/
+        // because babel shouldn't process our imported
+        // packages.
+        loader: "babel-loader"
+      },
+      {
         test: /\.(png|jpg|gif)$/,
         loader: "file-loader",
         options: {
